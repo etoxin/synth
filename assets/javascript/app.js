@@ -1,33 +1,55 @@
 function SynthCtrl($scope) {
     
-    $scope.frequency = 440
+    $scope.frequency = 440;
+    $scope.detune = 5;
+    $scope.type = "triangle";
+    $scope.amountOfoscillators = 3;
+    $scope.oscillators = [];
 
     $scope.start = function() {
-        o.start(0);
+        $scope.oscillators.forEach(function(osc){
+            osc.start();
+        })
     };
     $scope.stop = function() {
-        o.stop(0);
+        $scope.oscillators.forEach(function(osc){
+            osc.stop();
+        })
     };
 
 
     $scope.changeFreq = function () {
-        o.frequency.value = $scope.frequency;
+        $scope.oscillators.forEach(function(osc, index){
+            osc.frequency.value = $scope.frequency - ($scope.detune * index);
+        })
     }
 
     $scope.changeNote = function (freq) {
-        o.frequency.value = freq;
+        $scope.oscillators.forEach(function(osc, index){
+            osc.frequency.value = freq - ($scope.detune * index);
+        })
     }
 
     $scope.changeType = function (type) {
-        o.type = type;
+        $scope.oscillators.forEach(function(osc, index){
+            $scope.oscillators[index].type = type;
+        })
+
+        $scope.oscillators[osc].type = type;
     }
 
 
     var synth = new webkitAudioContext();
-    var o = synth.createOscillator();
-    o.frequency.value = $scope.frequency;
-    o.type = "triangle";
-    o.connect(synth.destination);
+    for (var i = 0; i < $scope.amountOfoscillators; i++) {
+        $scope.oscillators[i] = synth.createOscillator();
+        $scope.oscillators[i].frequency.value = $scope.frequency - ($scope.detune * i);
+        $scope.oscillators[i].type = "triangle";
+        $scope.oscillators[i].connect(synth.destination);
+    }
+
+    // Gain
+    var g = synth.createGainNode();
+    g.gain.value = 1;
 
     console.log($scope);
 }

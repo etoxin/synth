@@ -48,6 +48,7 @@
         </div>
 
         <div id="OscillatorNode" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
             <h2 class="page-header">Oscillator Node</h2>
 
             <h3>Frequency</h3>
@@ -69,9 +70,8 @@
 
         </div>
 
-
         <div id="OscillatorType" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="page-header">Oscillator Type</h2>
+            <h2 class="page-header">Oscillators</h2>
 
             <div class="btn-group">
                 <button type="button" class="btn btn-default" ng-click="changeType('sine')">sine</button>
@@ -80,6 +80,11 @@
                 <button type="button" class="btn btn-default" ng-click="changeType('triangle')">triangle</button>
             </div>
 
+            <h3>Detune</h3>
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" ng-model="detune" ng-change="changeFreq()">
+                <span class="input-group-addon">hertz</span>
+            </div>
 
         </div>
 
