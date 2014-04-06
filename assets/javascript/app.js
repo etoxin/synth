@@ -14,6 +14,10 @@ function SynthCtrl($scope) {
         o.frequency.value = $scope.frequency;
     }
 
+    $scope.changeNote = function (freq) {
+        o.frequency.value = freq;
+    }
+
     $scope.changeType = function (type) {
         o.type = type;
     }
