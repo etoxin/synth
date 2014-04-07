@@ -62,13 +62,13 @@
 
             <h3>Notes</h3>
             <div class="btn-group">
-                <button type="button" class="btn btn-default" ng-click="changeNote(262)">C</button>
-                <button type="button" class="btn btn-default" ng-click="changeNote(294)">D</button>
-                <button type="button" class="btn btn-default" ng-click="changeNote(330)">E</button>
-                <button type="button" class="btn btn-default" ng-click="changeNote(349)">F</button>
-                <button type="button" class="btn btn-default" ng-click="changeNote(392)">G</button>
-                <button type="button" class="btn btn-default" ng-click="changeNote(440)">A</button>
-                <button type="button" class="btn btn-default" ng-click="changeNote(494)">B</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(262)" ng-class="{active:frequency===262}">C</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(294)" ng-class="{active:frequency===294}">D</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(330)" ng-class="{active:frequency===330}">E</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(349)" ng-class="{active:frequency===349}">F</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(392)" ng-class="{active:frequency===392}">G</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(440)" ng-class="{active:frequency===440}">A</button>
+                <button type="button" class="btn btn-default" ng-click="changeNote(494)" ng-class="{active:frequency===494}">B</button>
             </div>
 
         </div>
@@ -77,10 +77,10 @@
             <h2 class="page-header">Oscillators</h2>
 
             <div class="btn-group">
-                <button type="button" class="btn btn-default" ng-click="changeType('sine')">sine</button>
-                <button type="button" class="btn btn-default" ng-click="changeType('square')">square</button>
-                <button type="button" class="btn btn-default" ng-click="changeType('sawtooth')">sawtooth</button>
-                <button type="button" class="btn btn-default" ng-click="changeType('triangle')">triangle</button>
+                <button type="button" class="btn btn-default" ng-click="changeType('sine')" ng-class="{active:type==='sine'}">sine</button>
+                <button type="button" class="btn btn-default" ng-click="changeType('square')" ng-class="{active:type==='square'}">square</button>
+                <button type="button" class="btn btn-default" ng-click="changeType('sawtooth')" ng-class="{active:type==='sawtooth'}">sawtooth</button>
+                <button type="button" class="btn btn-default" ng-click="changeType('triangle')" ng-class="{active:type==='triangle'}">triangle</button>
             </div>
 
             <h3>Detune</h3>

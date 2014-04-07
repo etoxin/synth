@@ -29,12 +29,14 @@ function SynthCtrl($scope) {
     }
 
     $scope.changeNote = function (freq) {
+        $scope.frequency = freq;
         $scope.oscillators.forEach(function(osc, index){
             osc.frequency.value = freq - ($scope.detune * index);
         })
     }
 
     $scope.changeType = function (type) {
+        $scope.type = type;
         $scope.oscillators.forEach(function(osc, index){
             $scope.oscillators[index].type = type;
         })
