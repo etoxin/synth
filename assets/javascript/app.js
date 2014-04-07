@@ -2,7 +2,7 @@ function SynthCtrl($scope) {
 
     $scope.running = false;
     $scope.frequency = 440;
-    $scope.detune = 5;
+    $scope.detune = 0.5;
     $scope.type = "triangle";
     $scope.amountOfoscillators = 3;
     $scope.oscillators = [];
