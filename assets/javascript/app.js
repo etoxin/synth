@@ -1,10 +1,12 @@
 function SynthCtrl($scope) {
-    
+
+    $scope.running = false;
     $scope.frequency = 440;
     $scope.detune = 5;
     $scope.type = "triangle";
     $scope.amountOfoscillators = 3;
     $scope.oscillators = [];
+    $scope.gain = 1.0;
     $scope.speak = "Baby, i'm wasted. All I wanna do is drive home to you.";
     $scope.speechSynth = new SpeechSynthesisUtterance($scope.speak);
 
@@ -12,11 +14,11 @@ function SynthCtrl($scope) {
         $scope.oscillators.forEach(function(osc){
             osc.start();
         })
+        $scope.running = true;
     };
     $scope.stop = function() {
-        $scope.oscillators.forEach(function(osc){
-            osc.stop();
-        })
+        $scope.gain = -1;
+        $scope.changeGain();
     };
 
 
@@ -51,8 +53,15 @@ function SynthCtrl($scope) {
     }
 
     // Gain
-    var g = synth.createGainNode();
-    g.gain.value = 1;
+    var gainNode = synth.createGainNode();
+    for (var i = 0; i < $scope.amountOfoscillators; i++) {
+        $scope.oscillators[i].connect(gainNode);
+    }
+    gainNode.connect(synth.destination);
+
+    $scope.changeGain = function () {
+        gainNode.gain.value = $scope.gain;
+    }
 
 
     // Speech

@@ -34,6 +34,7 @@
             <ul class="nav nav-sidebar">
                 <li><a href="#">top</a></li>
                 <li><a href="#OscillatorNode">OscillatorNode</a></li>
+                <li><a href="#gain">Gain</a></li>
                 <li><a href="#speechsynthesis">Speech Synthesis</a></li>
             </ul>
 
@@ -42,9 +43,10 @@
         <!-- MASTER -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Synth</h1>
-            <div class="btn-group">
-                <button type="button" class="btn btn-success" ng-click="start()">Start Synth</button>
-                <button type="button" class="btn btn-danger" ng-click="stop()">Stop Synth</button>
+            <div class="zbtn-group">
+                <button type="button" class="btn btn-primary" ng-click="start()" ng-hide="running">Start Oscillators</button>
+                <button type="button" class="btn btn-danger" ng-click="gain=-1;changeGain()" ng-show="gain>0">Mute Oscillators</button>
+                <button type="button" class="btn btn-success" ng-click="gain=1;changeGain()" ng-show="gain<0">Un-Mute Oscillators</button>
             </div>
         </div>
 
@@ -88,6 +90,14 @@
             </div>
 
         </div>
+
+        <div id="gain" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h2 class="page-header">Gain</h2>
+            <div class="input-group input-group-lg">
+                <input type="number" class="form-control" ng-model="gain" ng-change="changeGain()" max="1" min="-1" step="0.05">
+            </div>
+        </div>
+
 
         <div id="speechsynthesis" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="page-header">Speech Synthesis</h2>
