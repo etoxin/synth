@@ -5,6 +5,8 @@ function SynthCtrl($scope) {
     $scope.type = "triangle";
     $scope.amountOfoscillators = 3;
     $scope.oscillators = [];
+    $scope.speak = "Baby, i'm wasted. All I wanna do is drive home to you.";
+    $scope.speechSynth = new SpeechSynthesisUtterance($scope.speak);
 
     $scope.start = function() {
         $scope.oscillators.forEach(function(osc){
@@ -38,7 +40,8 @@ function SynthCtrl($scope) {
         $scope.oscillators[osc].type = type;
     }
 
-
+    // that's the prefixing sorted.
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var synth = new webkitAudioContext();
     for (var i = 0; i < $scope.amountOfoscillators; i++) {
         $scope.oscillators[i] = synth.createOscillator();
@@ -50,6 +53,13 @@ function SynthCtrl($scope) {
     // Gain
     var g = synth.createGainNode();
     g.gain.value = 1;
+
+
+    // Speech
+    $scope.talk = function () {
+        $scope.speechSynth.text = $scope.speak;
+        speechSynthesis.speak($scope.speechSynth);
+    }
 
     console.log($scope);
 }
