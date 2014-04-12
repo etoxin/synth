@@ -132,7 +132,10 @@
             <h3>Steps</h3>
 
             <ul class="stepsequence pagination">
-                <li data-ng-repeat="step in sequence" ng-class="{active:$index==stepper}"><a>{{step.step}}<br /><span class="badge">{{step.freq}}</span></a></li>
+                <li data-ng-repeat="step in sequence" ng-class="{active:$index==stepper}">
+                    <a>{{step.step}}
+                        <br/><input type="text" class="form-control stepsequenceinput" ng-model="step.freq">
+                    </a></li>
             </ul>
         </div>
 

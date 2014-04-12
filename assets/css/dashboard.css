@@ -95,6 +95,7 @@ body {
     border-radius: 50%;
 }
 
-.stepsequence{
-    text-align: center;
+.stepsequenceinput{
+    width: 52px;
+    padding: 5px;
 }
