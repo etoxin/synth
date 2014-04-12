@@ -83,7 +83,19 @@ function SynthCtrl($scope, $timeout) {
         {step: 1, freq: 600},
         {step: 2, freq: 500},
         {step: 3, freq: 60},
-        {step: 4, freq: 200}
+        {step: 4, freq: 200},
+        {step: 4, freq: 200},
+        {step: 4, freq: 100},
+        {step: 4, freq: 200},
+        {step: 4, freq: 5000},
+        {step: 4, freq: 4000},
+        {step: 4, freq: 2000},
+        {step: 4, freq: 5000},
+        {step: 4, freq: 50},
+        {step: 4, freq: 300},
+        {step: 4, freq: 800},
+        {step: 4, freq: 600},
+        {step: 4, freq: 5000}
     ]
 
 
