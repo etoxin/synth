@@ -91,14 +91,14 @@
             </div>
 
         </div>
-
+<!--
         <div id="gain" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="page-header">Gain</h2>
             <div class="input-group input-group-lg">
                 <input type="number" class="form-control" ng-model="gain" ng-change="changeGain()">
             </div>
         </div>
-
+-->
 
         <div id="speechsynthesis" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="page-header">Speech Synthesis</h2>
@@ -124,15 +124,15 @@
                 <div class="col-lg-4">
                     <div class="input-group">
                         <input type="number" class="form-control" ng-model="tempo" ng-change="changeTempo()">
-                        <span class="input-group-addon">Tempo</span>
+                        <span class="input-group-addon">Tempo (BPM)</span>
                     </div>
                 </div>
             </div>
 
             <h3>Steps</h3>
 
-            <ul class="pagination pagination-lg">
-                <li ng-repeat="step in sequence"><a href="#">{{step.step}}</a></li>
+            <ul class="stepsequence pagination">
+                <li data-ng-repeat="step in sequence" ng-class="{active:$index==stepper}"><a>{{step.step}}<br /><span class="badge">{{step.freq}}</span></a></li>
             </ul>
         </div>
 

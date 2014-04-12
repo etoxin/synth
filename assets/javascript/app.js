@@ -9,7 +9,7 @@ function SynthCtrl($scope, $timeout) {
     $scope.gain = -0.7;
     $scope.speak = "Push me. and then just touch me. Till I can get my. Satisfaction.";
     $scope.speechSynth = new SpeechSynthesisUtterance($scope.speak);
-    $scope.tempo = 2000;
+    $scope.tempo = 160;
     $scope.stepper = 0;
 
     $scope.start = function() {
@@ -84,18 +84,18 @@ function SynthCtrl($scope, $timeout) {
         {step: 2, freq: 500},
         {step: 3, freq: 60},
         {step: 4, freq: 200},
-        {step: 4, freq: 200},
-        {step: 4, freq: 100},
-        {step: 4, freq: 200},
-        {step: 4, freq: 5000},
-        {step: 4, freq: 4000},
-        {step: 4, freq: 2000},
-        {step: 4, freq: 5000},
-        {step: 4, freq: 50},
-        {step: 4, freq: 300},
-        {step: 4, freq: 800},
-        {step: 4, freq: 600},
-        {step: 4, freq: 5000}
+        {step: 5, freq: 200},
+        {step: 6, freq: 100},
+        {step: 7, freq: 200},
+        {step: 8, freq: 500},
+        {step: 9, freq: 400},
+        {step: 10, freq: 200},
+        {step: 11, freq: 500},
+        {step: 12, freq: 50},
+        {step: 13, freq: 300},
+        {step: 14, freq: 800},
+        {step: 15, freq: 600},
+        {step: 16, freq: 50}
     ]
 
 
@@ -110,12 +110,9 @@ function SynthCtrl($scope, $timeout) {
         if($scope.run === true){
             $scope.stepper++;
 
-
-
-            console.log($scope.stepper);
             window.setTimeout(function() {
                 $scope.nextStep($scope.stepper);
-            }, $scope.tempo);
+            },  (60000  / $scope.tempo) );
         }
     }
 
