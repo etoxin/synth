@@ -80,25 +80,36 @@ function SynthCtrl($scope, $timeout) {
 
     $scope.run = false;
     $scope.sequence = [
-        {step: 1, freq: 40},
+        {step: 1, freq: 600},
         {step: 2, freq: 500},
         {step: 3, freq: 60},
         {step: 4, freq: 200}
     ]
 
-    $scope.play = function () {
-        $scope.run = true;
-        $timeout($scope.nextStep(0), $scope.tempo);
-    }
+
     $scope.nextStep = function (step) {
+        if ($scope.stepper >= $scope.sequence.length) {
+            $scope.stepper = 0;
+            step = 0;
+        }
         $scope.frequency = $scope.sequence[step].freq;
         $scope.changeFreq();
 
         if($scope.run === true){
-            $scope.stepper = $scope.stepper++;
+            $scope.stepper++;
+
+
+
             console.log($scope.stepper);
-            $timeout($scope.nextStep($scope.stepper), $scope.tempo);
+            window.setTimeout(function() {
+                $scope.nextStep($scope.stepper);
+            }, $scope.tempo);
         }
+    }
+
+    $scope.play = function () {
+        $scope.run = true;
+        $timeout($scope.nextStep(0));
     }
 
     // console.log($scope);
