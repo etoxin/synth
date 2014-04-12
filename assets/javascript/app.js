@@ -1,4 +1,4 @@
-function SynthCtrl($scope) {
+function SynthCtrl($scope, $timeout) {
 
     $scope.running = false;
     $scope.frequency = 440;
@@ -6,18 +6,22 @@ function SynthCtrl($scope) {
     $scope.type = "triangle";
     $scope.amountOfoscillators = 3;
     $scope.oscillators = [];
-    $scope.gain = 1.0;
-    $scope.speak = "Baby, i'm wasted. All I wanna do is drive home to you.";
+    $scope.gain = -0.7;
+    $scope.speak = "Push me. and then just touch me. Till I can get my. Satisfaction.";
     $scope.speechSynth = new SpeechSynthesisUtterance($scope.speak);
+    $scope.tempo = 2000;
+    $scope.stepper = 0;
 
     $scope.start = function() {
         $scope.oscillators.forEach(function(osc){
             osc.start();
+            $scope.gain = -0.7;
+            $scope.changeGain();
         })
         $scope.running = true;
     };
     $scope.stop = function() {
-        $scope.gain = -1;
+        $scope.gain = -0.7;
         $scope.changeGain();
     };
 
@@ -72,5 +76,30 @@ function SynthCtrl($scope) {
         speechSynthesis.speak($scope.speechSynth);
     }
 
-    console.log($scope);
+    // sequencer
+
+    $scope.run = false;
+    $scope.sequence = [
+        {step: 1, freq: 40},
+        {step: 2, freq: 500},
+        {step: 3, freq: 60},
+        {step: 4, freq: 200}
+    ]
+
+    $scope.play = function () {
+        $scope.run = true;
+        $timeout($scope.nextStep(0), $scope.tempo);
+    }
+    $scope.nextStep = function (step) {
+        $scope.frequency = $scope.sequence[step].freq;
+        $scope.changeFreq();
+
+        if($scope.run === true){
+            $scope.stepper = $scope.stepper++;
+            console.log($scope.stepper);
+            $timeout($scope.nextStep($scope.stepper), $scope.tempo);
+        }
+    }
+
+    // console.log($scope);
 }
