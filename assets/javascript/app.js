@@ -1,9 +1,9 @@
 function SynthCtrl($scope, $timeout) {
 
     $scope.running = false;
-    $scope.frequency = 440;
+    $scope.frequency = 50;
     $scope.detune = 0.5;
-    $scope.type = "triangle";
+    $scope.type = "sawtooth";
     $scope.amountOfoscillators = 3;
     $scope.oscillators = [];
     $scope.gain = -0.7;
@@ -54,7 +54,7 @@ function SynthCtrl($scope, $timeout) {
     for (var i = 0; i < $scope.amountOfoscillators; i++) {
         $scope.oscillators[i] = synth.createOscillator();
         $scope.oscillators[i].frequency.value = $scope.frequency - ($scope.detune * i);
-        $scope.oscillators[i].type = "triangle";
+        $scope.oscillators[i].type = "sawtooth";
         $scope.oscillators[i].connect(synth.destination);
     }
 
@@ -80,22 +80,25 @@ function SynthCtrl($scope, $timeout) {
 
     $scope.run = false;
     $scope.sequence = [
-        {step: 1, freq: 600},
-        {step: 2, freq: 500},
-        {step: 3, freq: 60},
-        {step: 4, freq: 200},
-        {step: 5, freq: 200},
-        {step: 6, freq: 100},
-        {step: 7, freq: 200},
-        {step: 8, freq: 500},
-        {step: 9, freq: 400},
-        {step: 10, freq: 200},
-        {step: 11, freq: 500},
-        {step: 12, freq: 50},
-        {step: 13, freq: 300},
-        {step: 14, freq: 800},
-        {step: 15, freq: 600},
-        {step: 16, freq: 50}
+        {step: 1, freq: 262},
+        {step: 2, freq: 294},
+        {step: 3, freq: 262},
+        {step: 4, freq: 294},
+
+        {step: 5, freq: 330},
+        {step: 6, freq: 349},
+        {step: 7, freq: 330},
+        {step: 8, freq: 349},
+
+        {step: 9, freq: 392},
+        {step: 10, freq: 440},
+        {step: 11, freq: 392},
+        {step: 12, freq: 349},
+
+        {step: 13, freq: 330},
+        {step: 14, freq: 330},
+        {step: 15, freq: 330},
+        {step: 16, freq: 330}
     ]
 
 

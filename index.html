@@ -134,7 +134,7 @@
             <ul class="stepsequence pagination">
                 <li data-ng-repeat="step in sequence" ng-class="{active:$index==stepper}">
                     <a>{{step.step}}
-                        <br/><input type="text" class="form-control stepsequenceinput" ng-model="step.freq">
+                        <br/><input type="number" class="form-control stepsequenceinput" ng-model="step.freq">
                     </a></li>
             </ul>
         </div>
