@@ -139,6 +139,7 @@ function SynthCtrl($scope, $timeout) {
 		var alpha = e.alpha;
 		var beta = e.beta;
 		var gamma = e.gamma;
+		$scope.detune = beta;
 		$scope.frequency = alpha;
 		$scope.changeFreq();
 		console.log(e);
