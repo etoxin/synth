@@ -124,5 +124,24 @@ function SynthCtrl($scope, $timeout) {
         $timeout($scope.nextStep(0));
     }
 
+// Accelerometer Data
+	window.addEventListener('devicemotion', function(e) {
+		var x = e.accelerationIncludingGravity.x;
+		var y = e.accelerationIncludingGravity.y;
+		var z = e.accelerationIncludingGravity.z;
+		console.log(e);
+		$scope.detune = x;
+		changeFreq();
+	});
+
+// Gyroscope Data
+	window.addEventListener('deviceorientation', function(e) {
+		var alpha = e.alpha;
+		var beta = e.beta;
+		var gamma = e.gamma;
+		console.log(e);
+	});
+
+
     // console.log($scope);
 }
