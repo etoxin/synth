@@ -130,7 +130,7 @@ function SynthCtrl($scope, $timeout) {
 		var y = e.accelerationIncludingGravity.y;
 		var z = e.accelerationIncludingGravity.z;
 		console.log(e);
-		$scope.frequency = x * 3;
+		$scope.frequency = x * 30;
 		$scope.changeFreq();
 	});
 
