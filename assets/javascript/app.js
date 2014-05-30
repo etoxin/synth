@@ -130,8 +130,8 @@ function SynthCtrl($scope, $timeout) {
 		var y = e.accelerationIncludingGravity.y;
 		var z = e.accelerationIncludingGravity.z;
 		console.log(e);
-		$scope.detune = x;
-		$scope.changeFreq();
+		//$scope.detune = x;
+		//$scope.changeFreq();
 	});
 
 // Gyroscope Data
@@ -139,7 +139,7 @@ function SynthCtrl($scope, $timeout) {
 		var alpha = e.alpha;
 		var beta = e.beta;
 		var gamma = e.gamma;
-		$scope.frequency = e+100;
+		$scope.frequency = alpha;
 		$scope.changeFreq();
 		console.log(e);
 	});
