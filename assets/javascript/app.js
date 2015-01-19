@@ -126,14 +126,14 @@ angular.module('synthApp', [])
         };
 
 // Accelerometer Data
-        window.addEventListener('devicemotion', function(e) {
-            var x = e.accelerationIncludingGravity.x;
-            var y = e.accelerationIncludingGravity.y;
-            var z = e.accelerationIncludingGravity.z;
-            console.log(e);
-            $scope.frequency = x * 30;
-            $scope.changeFreq();
-        });
+//        window.addEventListener('devicemotion', function(e) {
+//            var x = e.accelerationIncludingGravity.x;
+//            var y = e.accelerationIncludingGravity.y;
+//            var z = e.accelerationIncludingGravity.z;
+//            console.log(e);
+//            $scope.frequency = x * 30;
+//            $scope.changeFreq();
+//        });
 
     }]);
 
