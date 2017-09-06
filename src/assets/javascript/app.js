@@ -51,7 +51,7 @@ angular.module('synthApp', [])
 
         // that's the prefixing sorted.
         // window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        var synth = new webkitAudioContext();
+        var synth = new AudioContext();
         for (var i = 0; i < $scope.amountOfoscillators; i++) {
             $scope.oscillators[i] = synth.createOscillator();
             $scope.oscillators[i].frequency.value = $scope.frequency - ($scope.detune * i);
